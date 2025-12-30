@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="">
+        <meta name="description" content="">
+        <title>buburakk - Personal Blog</title>
+	    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.0/dist/purify.min.js"></script>
+        <script type="text/javascript" language="JavaScript" src="js/smooth_scroll.js" defer></script>
+        <script type="text/javascript" language="JavaScript" src="js/utils.js" defer></script>
+        <script type="text/javascript" language="JavaScript" src="js/main.js" defer></script>
+        <link type="text/css" rel="stylesheet" href="css/style.css">
+        <link type="image/x-icon" rel="icon" href="assets/images/logo_favicon.ico">
+    </head>
+    <body>
+        <div class="body-container">
+            <header>
+                <div class="container header-container">
+                    <div class="header-logo-container">
+                    </div>
+                    <div class="navbar-container">
+                        <nav>
+                            <ul id="navBarMenu">
+                                <li>
+                                    <a id="toggleMenuIcon" class="button" title="Menu">
+                                        <img class="icon" src="assets/images/menu_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Menu Button">
+                                    </a>
+                                    <ul class="toggle-menu-elements">
+                                        <li class="toggle-element">
+                                            <a data-navigation="assets/index/index.md" id="homeButtonIcon" class="button" title="Home">
+                                                <img class="icon" src="assets/images/home_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Home Button">
+                                            </a>
+                                            <a data-navigation="assets/index/index.md" id="homeButtonText" class="button" title="Home">
+                                                Home
+                                            </a>
+                                        </li>
+                                        <li class="toggle-element">
+                                            <a data-navigation="assets/notes/" id="notesButtonIcon" class="button" title="Notes">
+                                                <img class="icon" src="assets/images/notes_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Notes Button">
+                                            </a>
+                                            <a data-navigation="assets/notes/" id="notesButtonText" class="button" title="Notes">
+                                                Notes
+                                            </a>
+                                        </li>
+                                        <li class="toggle-element">
+                                            <a data-navigation="assets/codes/" id="codesButtonIcon" class="button" title="Codes">
+                                                <img class="icon" src="assets/images/codes_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Codes Button">
+                                            </a>
+                                            <a data-navigation="assets/codes/" id="codesButtonText" class="button" title="Codes">
+                                                Codes
+                                            </a>
+                                        </li>
+                                        <li class="toggle-element">
+                                            <a data-navigation="assets/linux/" id="linuxButtonIcon" class="button" title="Linux">
+                                                <img class="icon" src="assets/images/linux_icon.svg" alt="Linux Button">
+                                            </a>
+                                            <a data-navigation="assets/linux/" id="linuxButtonText" class="button" title="Linux">
+                                                Linux
+                                            </a>
+                                        </li>
+                                        <li class="toggle-element">
+                                            <a data-navigation="assets/about/about.md" id="aboutButtonText" class="button" title="About">
+                                                About
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+	        <aside>
+                <div class="container aside-container">
+                    <div class="dropdown-container">
+                    </div>
+                </div>
+	        </aside>
+            <main>
+                <div class="container main-container">
+                    <div class="article-container">
+                    </div>
+                    <a data-navigation="scrolltop" id="scrollToTopIcon" class="button" title="Top">
+                        <img class="icon" src="assets/images/keyboard_double_arrow_up_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Scroll Button">
+                    </a>
+                    <a data-navigation="scrolltop" id="scrollToTopText" class="button" title="Top">
+                        Top
+                    </a>
+                    <hr>
+                    <div class="quote-container">
+                    </div>
+                </div>
+            </main>
+            <footer>
+                <div class="container footer-container">
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
