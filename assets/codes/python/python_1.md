@@ -104,7 +104,7 @@ plt.show()
 
 # Conclusion
 
-The code above runs both algorithms on a range of input sizes from $5$ to $3125$ and plots the execution time against the input size, comparing the performance of two prime number generation algorithms. This range was kept this narrow as it suffices to clearly show performance difference between the algorithms, which are simply explained below
+The code above runs both algorithms on a range of input sizes from $5$ to $3125$ and plots the execution time against the input size, comparing the performance of two prime number generation algorithms. This range was kept this narrow as it suffices to clearly show performance difference between the algorithms, which are simply explained below:
 
 * `prime_list_v1`: This function uses a simple algorithm to generate prime numbers by checking the next candidate successively against the existing list of primes.
 

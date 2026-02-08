@@ -193,7 +193,7 @@ print(f"'b' {b.shape}:\n\n{b}",
       [  2.]]]
 
 
-While the former generates a solution array (not a vector) filled with elements of solution vectors reduntantly
+While the former generates a solution array (not a vector) filled with elements of solution vectors reduntantly:
 
 ```
  [[[-15. -15. -15.]
@@ -209,7 +209,7 @@ While the former generates a solution array (not a vector) filled with elements 
    [  2.   2.   2.]]]
 ```
 
-and the latter gives solution vectors column-wise on top of each other
+Therefore, it is reasonable to use the latter since it gives solution vectors column-wise on top of each other:
 
 ```
  [[[-15.]
@@ -224,8 +224,6 @@ and the latter gives solution vectors column-wise on top of each other
    [  8.]
    [  2.]]]
 ```
-
-Therefore, it is reasonable to use the latter.
 
 Finite difference method is one of the fundamental approaches utilized in the solution of differential equations. It is used to approximate derivative of a function as a linear combination of function values at certain points. That is,
 

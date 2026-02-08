@@ -1,6 +1,6 @@
 # File Format Error When Running
 
-Sometimes a file format becomes inaccessible when it is directly transferred from one operating system to another. In the case of Linux, if a file, with **.txt** extension, created on Windows operating system is moved onto Linux and ran, an error occurs:
+Sometimes a file format becomes inaccessible when it is directly transferred from one operating system to another. If a **.txt** file created on Windows is transferred to and executed on Linux systems, an error may occur:
 
 ```bash
 -bash: /home/username/.local/bin/filename: cannot execute: required file not found
@@ -20,7 +20,7 @@ If the file named **filename** is in DOS Format, it can be fixed by running:
 sed -i 's/\r$//' filename
 ```
 
-Alternatively, there is a package, namely **dos2unix**, already in use that comes with many other functionalities than simply converting a file in DOS format into Unix format. It can be installed with the command below:
+Alternatively, there is a package, namely **dos2unix**, already in use that comes with many functionalities other than simply converting a file in DOS format into Unix format. It can be installed with the command below:
 
 ```bash
 sudo pacman -S dos2unix

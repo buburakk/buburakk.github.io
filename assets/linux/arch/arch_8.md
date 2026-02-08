@@ -12,7 +12,7 @@ Update **man** database by running:
 sudo mandb
 ```
 
-Then `whatis htop` returns:
+The very first command successfully returns:
 
 ```bash
 htop (1)             - interactive process viewer

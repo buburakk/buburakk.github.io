@@ -12,7 +12,7 @@ The lines that should be checked for start with titles **Provides**, **Depends O
 sudo pacman -Rns inspac
 ```
 
-Then we can also check for missing files that might have been required:
+We can also check for missing files that might have been required:
 
 ```bash
 sudo pacman -Qk | grep "missing"
