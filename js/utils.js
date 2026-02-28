@@ -29,7 +29,8 @@ const navigationMap = {
           "arch_6.md", 
           "arch_7.md", 
           "arch_8.md",
-          "arch_9.md"
+          "arch_9.md",
+          "arch_10.md"
         ]
     },
     "about/": ["about.md"]
