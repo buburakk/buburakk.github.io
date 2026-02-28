@@ -3,18 +3,18 @@
 Let $f : \mathbb{R}^{n} \to \mathbb{R}$ be a $k$-times continuously differentiable function at the point $\mathbf{a} \in \mathbb{R}^{n}$, then the function can be approximated by [Taylor series](https://en.wikipedia.org/wiki/Taylor%27s_theorem#Taylor's_theorem_for_multivariate_functions) given below given in [multi-index notation](https://en.wikipedia.org/wiki/Multi-index_notation)
 
 $$
-f(\mathbf{x}) = \sum_{|\alpha | \leq k}{\frac{D^{\alpha} f(\mathbf{a})}{\alpha !}} (\mathbf{x} - \mathbf{a})^{\alpha} \, ,
+f(\mathbf{x}) = \sum_{|\alpha | \leq k}{\frac{D^{\alpha} f(\mathbf{a})}{\alpha !}} (\mathbf{x} - \mathbf{a})^{\alpha},
 $$
 
 where
 
 $$
 \begin{aligned}
-D^{\alpha} f(\mathbf{a}) &= {\frac{\partial^{|\alpha|}f(\mathbf{a})}{\partial \mathbf{x}^{\alpha}}} = {\frac{\partial^{\alpha_{1} + \cdots + \alpha_{n}} f(\mathbf{a})}{\partial x_{1}^{\alpha_{1}} \cdots \partial x_{n}^{\alpha_{n}}}} \, , \newline
+D^{\alpha} f(\mathbf{a}) &= {\frac{\partial^{|\alpha|}f(\mathbf{a})}{\partial \mathbf{x}^{\alpha}}} = {\frac{\partial^{\alpha_{1} + \cdots + \alpha_{n}} f(\mathbf{a})}{\partial x_{1}^{\alpha_{1}} \cdots \partial x_{n}^{\alpha_{n}}}}, \newline
 \newline
-|\alpha| &= \alpha_{1} + \cdots + \alpha_{n} \, , \newline
+|\alpha| &= \alpha_{1} + \cdots + \alpha_{n}, \newline
 \newline
-\alpha ! &= \alpha_{1} ! \cdots \alpha_{n} ! \, , \newline
+\alpha ! &= \alpha_{1} ! \cdots \alpha_{n} !, \newline
 \newline
 (\mathbf{x} - \mathbf{a})^{\alpha} &= (x_{1} - a_{1})^{\alpha_{1}} \cdots (x_{n} - a_{n})^{\alpha_{n}}
 \end{aligned}
@@ -38,7 +38,7 @@ f(\mathbf{x}) &\approx \frac{f(\mathbf{a})}{0! 0!} (x_{1} - a_{1})^{0} (x_{2} - 
 \newline
 &\quad + \frac{f_{xxx}(\mathbf{a})}{3! 0!} (x_{1} - a_{1})^{3} (x_{2} - a_{2})^{0} + \frac{f_{xxy}(\mathbf{a})}{2! 1!} (x_{1} - a_{1})^{2} (x_{2} - a_{2})^{1} \newline
 \newline
-&\quad + \frac{f_{xyy}(\mathbf{a})}{1! 2!} (x_{1} - a_{1})^{1} (x_{2} - a_{2})^{2} + \frac{f_{yyy}(\mathbf{a})}{0! 3!} (x_{1} - a_{1})^{0} (x_{2} - a_{2})^{3} \, .
+&\quad + \frac{f_{xyy}(\mathbf{a})}{1! 2!} (x_{1} - a_{1})^{1} (x_{2} - a_{2})^{2} + \frac{f_{yyy}(\mathbf{a})}{0! 3!} (x_{1} - a_{1})^{0} (x_{2} - a_{2})^{3}.
 \end{aligned}
 $$
 
@@ -54,7 +54,7 @@ f(\mathbf{x}) &\approx f(\mathbf{a}) \newline
 \newline
 &\quad + \frac{1}{3!} \biggr[f_{xxx}(\mathbf{a}) (x_{1} - a_{1})^{3} + 3 f_{xxy}(\mathbf{a}) (x_{1} - a_{1})^{2} (x_{2} - a_{2})\bigr. \newline
 \newline
-&\qquad \qquad \left. + 3 f_{xyy}(\mathbf{a}) (x_{1} - a_{1}) (x_{2} - a_{2})^{2} + f_{yyy}(\mathbf{a}) (x_{2} - a_{2})^{3}\right] \, .
+&\qquad \qquad \left. + 3 f_{xyy}(\mathbf{a}) (x_{1} - a_{1}) (x_{2} - a_{2})^{2} + f_{yyy}(\mathbf{a}) (x_{2} - a_{2})^{3}\right].
 \end{aligned}
 $$
 
@@ -497,15 +497,15 @@ As an example, we can obtain the components of the third-order Taylor series exp
 
 $$
 \begin{aligned}
-&\text{(x: 0, y: 1, z: 2, t: 3)} \, , \newline
+&\text{(x: 0, y: 1, z: 2, t: 3)}, \newline
 \newline
-&\text{Variable Indices: } (0, 0) \, , \newline
+&\text{Variable Indices: } (0, 0), \newline
 \newline
-&\text{1 / n!: } 0.5 \, , \newline
+&\text{1 / n!: } 0.5, \newline
 \newline
-&\text{Coefficients: } 1.0 \, , \newline
+&\text{Coefficients: } 1.0, \newline
 \newline
-&\text{Derivatives (2-order): } -2.153550386428833 \, , \newline
+&\text{Derivatives (2-order): } -2.153550386428833, \newline
 \newline
 &\text{(x - a)}^{\alpha}: 0.04000000000000001
 \end{aligned}

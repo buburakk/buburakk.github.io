@@ -1,6 +1,6 @@
 # Searching for a File in the Repository
 
-There might be cases where a specific file may be required for a package/program to run. There is a easy way that helps with locating it in the repository, inside which package(s). If command has not been used before, a database must be set up first by running the command:
+There might be cases where a specific file may be required for a package/program to run. There is an easy way that helps with locating it in the repository, inside which package(s). If command has not been used before, a database must be set up first by running the command:
 
 ```bash
 sudo pacman -Fy
