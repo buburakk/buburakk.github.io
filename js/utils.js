@@ -1,40 +1,6 @@
-//  ################
-//  GLOBAL VARIABLES
-//  ################
-
-const navigationMap = {
-    "index/": ["index.md"],
-    "notes/": ["update.md"],
-    "codes/": {
-        "python/": [
-          "python_1.md",
-          "python_2.md",
-          "python_3.md",
-          "python_4.md",
-          "python_5.md",
-          "python_6.md",
-          "python_7.md",
-          "python_8.md",
-          "python_9.md",
-          "python_10.md"
-        ]
-    },
-    "linux/": {
-        "arch/": [
-          "arch_1.md", 
-          "arch_2.md", 
-          "arch_3.md", 
-          "arch_4.md", 
-          "arch_5.md", 
-          "arch_6.md", 
-          "arch_7.md", 
-          "arch_8.md",
-          "arch_9.md",
-          "arch_10.md"
-        ]
-    },
-    "about/": ["about.md"]
-};
+//  #########
+//  UTILITIES
+//  #########
 
 const quoteMap = [
     {
@@ -83,9 +49,42 @@ const quoteMap = [
 //  HELPER FUNCTIONS
 //  ################
 
+const markdownCache = new Map();
+const headingCache = new Map();
+
+function fetchMarkdown(path) {
+    if (markdownCache.has(path)) {
+        return markdownCache.get(path);
+    }
+    const promise = fetch(path)
+        .then((response) => {
+            if (!response.ok) throw new Error(`Failed to load markdown: ${path}`);
+            return response.text();
+        })
+        .then((text) => {
+            markdownCache.set(path, Promise.resolve(text));
+            return text;
+        })
+        .catch((err) => {
+            markdownCache.delete(path);
+            throw err;
+        });
+    markdownCache.set(path, promise);
+    return promise;
+}
+
+async function fetchHeadings(path) {
+    if (headingCache.has(path)) return headingCache.get(path);
+    const promise = fetchMarkdown(path)
+        .then((text) => headingToken(text));
+    headingCache.set(path, promise);
+    return promise;
+}
+
 function getBaseName(path) {
-    const baseName = path.split('/').pop().replace(/\..*$/, '');
-    return baseName.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+    const file = path.substring(path.lastIndexOf('/') + 1);
+    const base = file.replace(/\..*$/, '');
+    return base.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
 }
 
 function getRandomPath(obj, path) {
@@ -101,45 +100,36 @@ function getAllPaths(obj, path, exclude = []) {
     let results = [];
     if (Array.isArray(obj)) {
         results.push(obj.map((file) => path + file));
-    } else if (typeof obj === "object" && obj !== null) {
+    } else if (obj && typeof obj === "object") {
         for (const key in obj) {
+            if (!Object.prototype.hasOwnProperty.call(obj, key)) continue;
             if (exclude.includes(key)) continue;
-            const value = obj[key];
-            const newPath = path + key;
-            results = results.concat(getAllPaths(value, newPath, exclude));
+            results = results.concat(getAllPaths(obj[key], path + key, exclude));
         }
     }
     return results;
 }
 
 function randomizer(array) {
-    const randomIndex = Math.floor(Math.random() * array.length);
-    return array[randomIndex];
+    return array[(Math.random() * array.length) | 0];
 }
 
 function parseAndPurify(markdown) {
-    const markdownObject = marked.parse(markdown);
-    return DOMPurify.sanitize(markdownObject);
+    return DOMPurify.sanitize(marked.parse(markdown));
 }
 
 function headingToken(markdown) {
     const tokens = marked.lexer(markdown);
     return [tokens.find((token) => token.type === "heading")];
-    //return tokens.filter((token) => token.type === "heading");  #  Alternative use that returns an array of all 'headings'
 }
 
 function toCamelCase(string) {
-    return string.
-    toLowerCase()
-    .split(' ')
-    .map((word, index) => {
-        if (index === 0) {
-            return word;
-        } else {
-            return word.charAt(0).toUpperCase() + word.slice(1);
-        }
-    })
-    .join('');
+    const words = string.toLowerCase().split(' ');
+    for (let i = 1; i < words.length; i++) {
+        const w = words[i];
+        words[i] = w.charAt(0).toUpperCase() + w.slice(1);
+    }
+    return words.join('');
 }
 
 //  -------------------------------------------------------------------------------------------
@@ -245,33 +235,28 @@ async function createCardContent() {
 }
 
 async function createDropDownMenu(title, markdowns) {
+    const results = await Promise.all(
+        markdowns.map(async (path) => ({ markdown: path, headings: await fetchHeadings(path) }))
+    );
     let htmlContent = `
     <li class="dropdown-element">
         <a data-navigation="${randomizer(markdowns)}">
             <span>${title}</span>
         </a>
     `;
-    for (const markdown of markdowns) {
-        try {
-            const response = await fetch(markdown);
-            if (!response.ok) {
-                throw new Error("Failed to load 'Markdown' (.md) file!");
-            }
-            const headings = headingToken(await response.text());
-            htmlContent += "<ul>";
-            for (const heading of headings) {
-                htmlContent += `
-                <li>
-                    <a data-navigation="${markdown}">
-                        <span>${heading.text}</span>
-                    </a>
-                </li>
-                `;
-            }
-            htmlContent += "</ul>";
-        } catch (error) {
-            console.error(error);
+    for (const result of results) {
+        htmlContent += "<ul>";
+        for (const heading of result.headings) {
+            if (!heading) continue;
+            htmlContent += `
+            <li>
+                <a data-navigation="${result.markdown}">
+                    <span>${heading.text}</span>
+                </a>
+            </li>
+            `;
         }
+        htmlContent += "</ul>";
     }
     htmlContent += "</li>";
     return htmlContent;
@@ -279,24 +264,18 @@ async function createDropDownMenu(title, markdowns) {
 
 async function createMarkdownContent(title, markdowns) {
     const articleName = toCamelCase(title);
-    let htmlContent = `
-    <article id="${articleName + "Article"}">
-    `;
-    for (const markdown of markdowns) {
-        try {
-            const response = await fetch(markdown);
-            if (!response.ok) {
-                throw new Error("Failed to load 'Markdown' (.md) file!");
-            }
-            const sectionName = preTitle(markdown);
-            htmlContent += `
-            <section id="${sectionName + "Section"}">
-                ${parseAndPurify(await response.text())}
-            </section>
-            `;
-        } catch (error) {
-            console.error(error);
-        }
+    const results = await Promise.all(
+        markdowns.map(async (path) => ({ markdown: path, content: await fetchMarkdown(path) }))
+    );
+    let htmlContent = `<article id="${articleName}Article">`;
+
+    for (const result of results) {
+        const sectionName = preTitle(result.markdown);
+        htmlContent += `
+        <section id="${sectionName}Section">
+            ${parseAndPurify(result.content)}
+        </section>
+        `;
     }
     htmlContent += "</article>";
     return htmlContent;
