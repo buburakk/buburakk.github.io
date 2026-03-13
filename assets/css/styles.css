@@ -1,0 +1,928 @@
+@charset "UTF-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Merriweather&display=swap");
+
+html {
+    --clr-one: rgba(255,99,71,1);
+    --clr-two: rgba(244,67,54,1);
+    --clr-three: rgba(238,187,68,1);
+    --clr-four: rgba(255,204,187,1);
+    --clr-five: rgba(66,135,245,1);
+    --clr-six: rgba(68,34,136,1);
+    --clr-seven: rgba(255,183,27,1);
+    --clr-eight: #9359d4;
+    --clr--nine: #279906;
+    --clr-ten: #6588d8;
+    --clr-eleven: #71d0b3;
+    --clr-def-one: #FFC145;
+    --clr-def-two: #FF6B6C;
+    --clr-def-three: #5B5F97;
+    --clr-def-four: rgb(217,217,217,1);
+    --clr-def-five: white;
+    --clr-def-seven: rgba(44,44,44,1);
+    --bdy-bg-clr: rgba(200,200,200,1);
+    --fnt-fmly-two: "Merriweather", serif;
+    --txt-dcrtn-thcknss: 4px;
+    --cntnr-hdr-hght: 60px;
+    --cntnr-brdr-thcknss: 2px;
+    --cntnr-brdr-styl: var(--cntnr-brdr-thcknss) solid black;
+    --cntnr-brdr-rds: 7px;
+    --cntnr-bg-clr: var(--clr-def-five);
+    --cntnr-bx-shdw: 2px 2px 7px 1px black;
+    --bttn-brdr-thcknss: 2px;
+    --bttn-brdr-styl: var(--bttn-brdr-thcknss) solid black;
+    --bttn-brdr-rds: 5px;
+    --bttn-bg-clr: var(--clr-def-two);
+    /* --bttn-bx-shdw: 1px 2px 30px 0 rgba(0,0,0,0.25), -1px -2px 30px 0 rgba(0,0,0,0.25); */
+    /* --bttn-hvr-bx-shdw: 2px 4px 15px 0 rgba(0,0,0,0.5), -2px -4px 15px 0 rgba(0,0,0,0.5); */
+    --bttn-actv-bx-shdw: inset 1px 1px 10px 0 rgba(0,0,0,0.5), 0 0 10px 0 rgba(0,0,0,0.5);
+    --cd-brdr-rds: 5px;
+    --cd-frm-txt-dcrtn-thckness: 2px;
+    --cd-frm-brdr-styl: 2px solid black;
+    --cd-frm-bg-clr: var(--clr-def-seven);
+    --cd-bx-shdw: 1px 1px 5px 1px black;
+    --cd-ln-nmbr-bg-clr: var(--clr-def-seven);
+    --cd-ln-nmbr-txt-clr: darkgray;
+    --cd-ln-nmbr-brdr-style: 1px solid darkgray;
+    --sb-track-color: var(--clr-def-seven);
+    --sb-thumb-color: var(--clr-def-two);
+    --sb-size: 20px;
+}
+
+*,
+*::before,
+*::after {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+*::selection {
+    background-color: rgba(0,0,0,0);
+}
+
+body {
+    /* The line below breaks layout if uncommented
+    min-width: fit-content; */
+    height: 100%;
+    font-size: 0;
+    background-color: var(--bdy-bg-clr);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body::-webkit-scrollbar {
+    width: var(--sb-size);
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--sb-track-color);
+}
+
+body::-webkit-scrollbar-thumb {
+    border: var(--cntnr-brdr-thcknss) solid black;
+    border-radius: 10px;
+    background: var(--sb-thumb-color);
+}
+
+@supports not selector(::-webkit-scrollbar) {
+    body {
+        scrollbar-color: var(--sb-thumb-color) var(--sb-track-color);
+    }
+}
+
+header,
+aside,
+main,
+footer {
+    padding: 3rem;
+    font-size: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    padding-top: 0;
+    padding-bottom: 1.5rem;
+}
+
+aside {
+    display: inline-block;
+    vertical-align: top;
+    width: 25%;
+    padding-top: 1.5rem;
+    padding-right: 1.75rem;
+    padding-bottom: 1.5rem;
+}
+
+main {
+    display: inline-block;
+    width: 65%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.75rem;
+}
+
+footer {
+    position: sticky;
+    top: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 0;
+}
+
+div.container {
+    display: inline-block;
+    border: var(--cntnr-brdr-styl);
+    border-radius: var(--cntnr-brdr-rds);
+    box-shadow: var(--cntnr-bx-shdw);
+    height: 100%;
+    width: 100%;
+    padding: 1.5rem;
+    background-color: var(--cntnr-bg-clr);	
+}
+
+div.body-container {
+    margin: 0 auto;
+    min-width: 216px;
+    max-width: 2000px;
+    min-height: 100vh;
+}
+
+div.header-container {
+    border-top: none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-align: justify;
+}
+
+/* div.header-container::after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+} */
+
+div.header-logo-container {
+    display: inline-block;
+    margin-right: 0.75rem;
+    vertical-align: bottom;
+}
+
+/* Position navigation elements on the right
+instead of '::after' above with 'div.header-container element' */
+div.navbar-menu-container {
+    float: right;
+    margin-left: 0.75rem;
+    text-align: right;
+}
+
+div.aside-container {
+    padding: 1rem;
+}
+
+div.dropdown-menu-container {
+    overflow-wrap: break-word;
+}
+
+div.article-container ul {
+    list-style: none;
+    /* Can be removed safely, but still wait
+    list-style-position: inside;
+    font-family: var(--fnt-fmly-two);
+    text-align: justify;
+    line-height: 2; */
+}
+
+div.article-container ul li {
+    margin: 0;
+    padding: 0;
+}
+
+div.article-container ul li > p::before {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    text-align: center;
+    vertical-align: sub;
+    content: "•";
+    color: black;
+    font-size: 28px;
+}
+
+div.article-container ul,
+div.article-container li {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-size: 15px;
+}
+
+div.article-container a {
+    font-weight: bold;
+}
+
+div.article-container a:hover {
+    text-decoration: solid underline black var(--txt-dcrtn-thcknss);
+}
+
+div.article-container img {
+    display: block;
+    margin: 0.5rem auto;
+    width: 75%;
+    padding: 0.5rem;
+}
+
+div.image-frame {
+    float: right;
+    margin: 0.5rem 1rem 1.5rem 3rem;
+    width: 30%;
+    /* This line imparts images shadow
+    box-shadow: var(--cntnr-bx-shdw); */
+}
+
+div.image-subframe {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+div.image-frame img[alt="Me"],
+div.image-frame img[alt="Walk"] {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border: var(--cntnr-brdr-styl);
+    border-radius: var(--cntnr-brdr-rds);
+}
+
+div.image-subframe img[alt="LinkedIn"],
+div.image-subframe img[alt="GitHub"] {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    width: 36px;
+}
+
+div.image-subframe a {
+    margin-top: 1.5rem;
+}
+
+div.image-subframe a:first-child {
+    margin-right: 1.5rem;
+}
+
+div.image-frame img[alt="Walk"] {
+    margin-bottom: 0;
+}
+
+div.article-container *::selection {
+    background-color: var(--clr-def-two);
+}
+
+div.quote-container {
+    float: right;
+}
+
+div.footer-container {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+div.footer-container img {
+    object-fit: contain;
+}
+
+div.footer-container img[alt="HTML"] {
+    margin-left: 1px;
+    width: 29px;
+}
+
+div.footer-container img[alt="JavaScript"] {
+    margin-left: -5px;
+    width: 28px;
+}
+
+div.footer-container img[alt="CSS"] {
+    margin-right: 1px;
+    margin-left: -9px;
+    width: 28px;
+}
+
+ul.toggle-menu-elements {
+    list-style: none;
+}
+
+li.toggle-element {
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+li.toggle-element > a.button > img {
+    height: 28px;
+}
+
+section {
+    margin-bottom: 1.5rem;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+section h1:first-child {
+    text-align: center;
+}
+
+section[id="indexSection"] > h1,
+section[id="aboutSection"] > h1 {
+    font-size: 28px;
+    text-align: left;
+}
+
+section[id="aboutSection"] h2 {
+    font-size: 20px;
+    text-align: left;
+}
+
+section[id="indexSection"] > h1 + p::first-letter,
+section[id="aboutSection"] > h1 + p::first-letter {
+    float: left;
+    margin-right: 14px;
+    border: 2px solid black;
+    box-shadow: 4px 4px 0 black;
+    padding-right: 7px;
+    padding-left: 7px;
+    background-color: var(--clr-def-two);
+    color: black;
+    font-size: 250%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-family: var(--fnt-fmly-two);
+	font-size: 18px;
+	font-weight: bold;
+	text-align: left;
+}
+
+p {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-family: var(--fnt-fmly-two);
+	font-size: 15px;
+	text-align: justify;
+    /* This property below can be removed */
+    text-wrap-style: pretty;
+	line-height: 2;
+}
+
+p.quote-text {
+    font-family: var(--fnt-fmly-two);
+    font-size: 13px;
+    font-style: italic;
+    text-align: justify;
+    line-height: 1.75;
+}
+
+p.quote-text::before,
+p.quote-text::after {
+    content: "\"";
+    font-family: var(--fnt-fmly-two);
+}
+
+p.quote-author-reference {
+    margin: 0.5rem;
+    padding: 0.5rem;
+    font-family: var(--fnt-fmly-two);
+    font-size: 11px;
+    text-align: right;
+    line-height: 1.75;
+}
+
+p.footer-text {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-family: var(--fnt-fmly-two);
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+p.quote-text::selection,
+p.quote-author-reference::selection,
+p.footer-text::selection {
+    background-color: rgba(0,0,0,0);
+}
+
+a {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+hr {
+    margin-top: 3.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    border: none;
+    border-top: 10px double black;
+    color: black;
+    overflow: visible;
+    text-align: center;
+}
+
+hr::after {
+    position: relative;
+    top: -20px;
+    content: "§";
+    background: white;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 0 6px;
+}
+
+/* Old button effect that can be removed safely, but still wait */
+/* a.button {
+    display: inline-block;
+    vertical-align: bottom;
+    border: var(--bttn-brdr-styl);
+    border-bottom-width: 7px;
+	border-radius: var(--bttn-brdr-rds);
+	padding: 0.75rem;
+	height: 60px;
+	background-color: var(--bttn-bg-clr);
+	font-family: var(--fnt-fmly-two);
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	cursor: pointer;
+}
+
+a.button:hover {
+    text-decoration: solid underline black var(--txt-dcrtn-thcknss);
+}
+
+a.button:active {
+    border: var(--bttn-brdr-styl);
+    box-shadow: var(--bttn-actv-bx-shdw);
+    transform: translateY(2px);
+} */
+
+/* New button effect */
+a.button {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    border: var(--bttn-brdr-styl);
+    border-bottom-width: 7px;
+    border-radius: var(--bttn-brdr-rds);
+    padding: 0.75rem;
+    height: 60px;
+    background-color: var(--bttn-bg-clr);
+    font-family: var(--fnt-fmly-two);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a.button::after {
+    position: absolute;
+    content: "";
+    left: 13%;
+    /* Adjusting vertical position */
+    bottom: 7px;
+    width: 75%;
+    height: var(--txt-dcrtn-thcknss);
+    background: black;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.35s ease-in-out;
+}
+
+a.button:hover::after {
+    transform: scaleX(1);
+}
+
+a.button:active {
+    border: var(--bttn-brdr-styl);
+    box-shadow: var(--bttn-actv-bx-shdw);
+    transform: translateY(2px);
+}
+
+ul.dropdown-menu-elements {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    list-style: none;
+    cursor: pointer;
+}
+
+ul.dropdown-menu-elements li {
+    position: relative;
+}
+
+ul.dropdown-menu-elements a {
+    position: relative;
+    display: block;
+    padding: 10px 5px 10px 0;
+    font-family: var(--fnt-fmly-two);
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+ul.dropdown-menu-elements a:hover span,
+ul.dropdown-menu-elements a:active span {
+    text-decoration: solid underline black 2px;
+    text-underline-offset: 2px;
+}
+
+ul.dropdown-menu-elements a::before {
+    position: absolute;
+    left: 7px;
+    top: 50%;
+    transform: translateY(-50%);
+    content: "•";
+    color: black;
+    font-size: 28px;
+    transition: color 0.75s ease-in-out, content 0.75s ease-in-out;
+}
+
+ul.dropdown-menu-elements li:hover > a::before {
+    content: "»";
+    color: black;
+    font-size: 20px;
+}
+
+/* Picks dropdown 'title' element that is visible 
+and adjusts its distance from the bullet */
+ul.dropdown-menu-elements li a {
+    padding-left: 35px;
+}
+
+/* Picks dropdown 'subtitle' element that is hidden
+and adjusts its distance from the bullet */
+ul.dropdown-menu-elements ul li a {
+    margin-left: 15px;
+    padding-right: 10px;
+    padding-left: 35px;
+}
+
+ul.dropdown-menu-elements ul li a::before {
+    left: 7px;
+}
+
+ul.dropdown-menu-elements ul li a:hover,
+ul.dropdown-menu-elements ul li a:active {
+    color: black;
+}
+
+li.dropdown-element li {
+    line-height: 1.75;
+}
+
+li.dropdown-element > a {
+    padding-bottom: 10px;
+    font-size: 17px;
+}
+
+li.dropdown-element > a:hover span,
+li.dropdown-element > a:active span {
+    text-decoration: solid underline black 2px;
+    text-underline-offset: 3px;
+}
+
+li.dropdown-element > a::before {
+    top: 50%;
+}
+
+img.icon {
+    margin-bottom: 1px;
+    height: 28px;
+    vertical-align: middle;
+}
+
+#buburakkLogo {
+    width: 120px;
+    height: 60px;
+    cursor: pointer;
+}
+
+#toggleMenuIcon,
+#homeButtonIcon,
+#notesButtonIcon,
+#codesButtonIcon,
+#linuxButtonIcon,
+#scrollToTopIcon {
+    display: none;
+}
+
+#scrollToTopIcon,
+#scrollToTopText {
+    margin-top: 1.75rem;
+    margin-left: calc(100% - 66px - 0.5rem - 0.5rem);
+    width: 66px;
+}
+
+#notesButtonText,
+#codesButtonText,
+#linuxButtonText,
+#aboutButtonText {
+    margin: 0 0 0 1.5rem;
+}
+
+@media (min-width: 2560px) {
+    div.body-container {
+        width: 2560px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 2000px) {
+    aside {
+        width: 30%;
+    }
+
+    main {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1232px) {
+    aside {
+        width: 30%;
+    }
+
+    main {
+        width: 70%;
+    }
+}
+
+@media (max-width: 1024px) {
+    aside {
+        width: 35%;
+    }
+
+    main {
+        width: 65%;
+    }
+}
+
+@media (max-width: 822px) {
+    /* Logo hover effect removal */
+    span.logo-text:hover::after {
+        content: none;
+    }
+
+    /* Button hover effect removal */
+    a.button::after {
+        content: none;
+    }
+
+    #homeButtonIcon,
+    #scrollToTopIcon {
+        display: inline-block;
+    }
+
+    #homeButtonText,
+    #scrollToTopText {
+        display: none;
+    }
+}
+
+@media (max-width: 793px) {
+    #homeButtonIcon,
+    #notesButtonIcon,
+    #codesButtonIcon,
+    #linuxButtonIcon {
+        display: inline-block;
+    }
+
+    #notesButtonIcon,
+    #codesButtonIcon,
+    #linuxButtonIcon {
+        margin: 0 0 0 1.5rem;
+    }
+
+    #homeButtonText,
+    #notesButtonText,
+    #codesButtonText,
+    #linuxButtonText {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        position: fixed;
+        width: 100%;
+    }
+
+    /* Left alignment value by 'calc' calculated in a combination of 
+    percent and pixel size units to obtain a fixed size slider icon */
+    aside {
+        position: fixed;
+        left: calc(-40% - 35px);
+        z-index: 1;
+        margin-top: calc(1.5rem + 1.5rem + 1.5rem + 1.5rem + var(--cntnr-hdr-hght) + var(--cntnr-brdr-thcknss));
+        width: 40%;
+        padding: 0;
+        transition: left 0.75s ease-in-out;
+    }
+
+    aside::after {
+        position: absolute;
+        margin-right: 1.5rem;
+        border: var(--cntnr-brdr-styl);
+        border-radius: var(--cntnr-brdr-rds);
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: none;
+        box-shadow: var(--cntnr-bx-shdw);
+        width: 90px;
+        height: 60px;
+        padding: 8px;
+        padding-right: 19px;
+        content: "»";
+        color: black;
+        background-color: white;
+        font-size: 35px;
+        font-weight: bold;
+        text-align: right;
+        line-height: 32px;
+        cursor: pointer;
+    }
+    
+    aside:hover {
+        left: 0;
+    }
+
+    aside:hover::after {
+        content: "«";
+        width: 60px;
+        padding-right: 20px;
+    }
+
+    main {
+        margin-top: calc(1.5rem + 1.5rem + 1.5rem + var(--cntnr-hdr-hght) + var(--cntnr-brdr-thcknss));
+        margin-left: 11%;
+        width: 89%;
+    }
+
+    /* Drowndown menu effect for smaller screen sizes */
+    ul.dropdown-menu-elements ul li {
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: max-height 0.75s ease-in-out, opacity 0.75s ease-in-out;
+    }
+
+    ul.dropdown-menu-elements li:hover li {
+        max-height: 250px;
+        opacity: 1;
+    }
+
+    div.aside-container {
+        border-top-right-radius: 0;
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        padding-left: 0;
+        height: calc(100vh - 1.25 * (1.5rem + 1.5rem + 1.5rem + 1.5rem + var(--cntnr-hdr-hght) + var(--cntnr-brdr-thcknss)));
+    }
+
+    div.dropdown-menu-container {
+        height: 100%;
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 705px) {
+    header, 
+    footer {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    aside {
+        left: calc(-50% - 35px);
+        margin-top: calc(1.5rem + 1.5rem + 1rem + 1rem + var(--cntnr-hdr-hght) + var(--cntnr-brdr-thcknss));
+        width: 50%;
+    }
+
+    main {
+        margin-top: calc(1.5rem + 1rem + 1rem + var(--cntnr-hdr-hght) + var(--cntnr-brdr-thcknss));
+        padding-right: 0;
+    }
+
+    div.main-container {
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    div.header-container,
+    div.footer-container {
+        border-right: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-left: none;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    div.header-container,
+    div.main-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 595px) {
+    aside {
+        left: calc(-55% - 35px);
+        width: 55%;
+    }
+
+    div.navbar-menu-container {
+        position: relative;
+        z-index: 5;
+        margin-left: 0;
+        width: 100%;
+    }
+
+    div.header-logo-container {
+        position: absolute;
+        z-index: 6;
+        margin-right: 0;
+    }
+
+    ul.toggle-menu-elements,
+    li.toggle-element {
+        display: block;
+    }
+    
+    #homeButtonIcon,
+    #notesButtonIcon,
+    #codesButtonIcon,
+    #linuxButtonIcon,
+    #aboutButtonText {
+        margin-top: 1.5rem;
+        width: 100%;
+    }
+
+    #notesButtonIcon,
+    #codesButtonIcon,
+    #linuxButtonIcon,
+    #aboutButtonText {
+        margin-left: 0;
+    }
+
+    #toggleMenuIcon {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 425px) {
+    aside {
+        left: calc(-70% - 35px);
+        width: 70%;
+    }
+
+    main {
+        margin-left: 20%;
+        width: 80%;
+    }
+
+    div.image-frame {
+        margin: 0.5rem 0 1.5rem 0;
+        padding: 0 1rem;
+        width: 100%;
+    }
+
+    div.image-subframe img[alt="LinkedIn"], 
+    div.image-subframe img[alt="GitHub"] {
+        width: 32px;
+    }
+}
+
+@media (max-width: 320px) {
+    div.image-frame {
+        margin: 0 0 3rem 0;
+        width: 100%;
+        padding: 0.5rem 1rem 0 1rem;
+    }
+}

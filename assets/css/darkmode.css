@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+body.dark-mode {
+    background-color: black;
+}
+
+header.dark-mode,
+main.dark-mode,
+footer.dark-mode,
+div.dark-mode {
+    border: none;
+    background-color: black;
+}
+
+div.aside-container.dark-mode {
+    border-right: 1px solid white;
+}
+
+header.dark-mode {
+    border-bottom: 1px solid white;
+}

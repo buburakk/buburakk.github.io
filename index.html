@@ -3,16 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="">
-        <meta name="description" content="">
+        <meta name="title" content="Personal blog on mathematics, logic, machine/deep learning, coding and algorithms, etc.">
+        <meta name="description" content="Notes and code examples on mathematics, computational science and engineering, and programming">
+        <meta name="keywords" content="Personal Blog, Mathematics, Machine Learning, Deep Learning, Finite Element Analysis, FEA, Finite Difference Method, FDM, Computational Science, Computational Engineering, Algorithms, Python, C/C++, NumPy, JAX, PyTorch, TensorFlow, LaTeX, Linux, Arch Linux">
+        <meta name="author" content="B. Burak Karaosmanoğlu">
+        <meta name="robots" content="index, follow">
         <title>buburakk - Personal Blog</title>
-	    <script src="https://cdn.jsdelivr.net/npm/marked@17.0.3/lib/marked.umd.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/dompurify@3.3.1/dist/purify.min.js"></script>
-        <script type="text/javascript" language="JavaScript" src="js/smooth_scroll.js" defer></script>
-        <script type="text/javascript" language="JavaScript" src="js/utils.js" defer></script>
-        <script type="text/javascript" language="JavaScript" src="js/navigation.js" defer></script>
-        <link type="text/css" rel="stylesheet" href="css/style.css">
         <link type="image/x-icon" rel="icon" href="assets/images/logo_favicon.ico">
+        <link rel="modulepreload" fetchpriority="high" href="assets/js/main.js">
+        <link rel="prefetch" as="image" href="assets/images/walk.gif">
+        <link rel="prefetch" as="fetch" href="index/index.md" crossorigin>
+        <link rel="preload" as="script" href="assets/js/utils.js" crossorigin>
+        <link rel="preload" as="script" href="assets/js/contents.js" crossorigin>
+        <link rel="preload" as="script" href="assets/js/toggle_menu.js" crossorigin>
+        <link rel="preload" as="script" href="assets/js/responsive.js" crossorigin>
+        <link rel="preload" as="script" href="assets/js/loaders.js" crossorigin>
+        <link rel="preload" as="script" href="assets/js/navigation.js" crossorigin>
+        <link rel="preload" as="style" href="assets/css/styles.css">
+        <link rel="preload" as="style" href="assets/css/logo.css">
+        <link rel="preload" as="style" href="assets/css/codes.css">
+        <link rel="preload" as="style" href="assets/css/darkmode.css">
+        <link rel="preload" as="script" href="assets/js/dompurify/purify.min.js">
+        <link rel="preload" as="script" href="assets/js/marked/marked.umd.js">
+        <link type="text/css" rel="stylesheet" href="assets/css/styles.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/logo.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/codes.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/darkmode.css">
+        <link type="text/css" rel="stylesheet" href="assets/js/highlightjs/styles/github-dark.min.css">
+        <script defer src="assets/js/dompurify/purify.min.js"></script>
+        <script defer src="assets/js/marked/marked.umd.js"></script>
+        <script defer type="text/javascript" language="JavaScript" src="assets/js/highlightjs/highlight.min.js"></script>
+        <script defer type="module" src="assets/js/main.js"></script>
+        <script defer type="text/javascript" language="JavaScript" src="assets/js/mathjax/tex-mml-chtml.js"></script>
     </head>
     <body>
         <div class="body-container">
@@ -20,48 +42,48 @@
                 <div class="container header-container">
                     <div class="header-logo-container">
                     </div>
-                    <div class="navbar-container">
-                        <nav>
-                            <ul id="navBarMenu">
+                    <div class="navbar-menu-container">
+                        <nav id="navbarMenu">
+                            <ul>
                                 <li>
                                     <a id="toggleMenuIcon" class="button" title="Menu">
                                         <img class="icon" src="assets/images/menu_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Menu Button">
                                     </a>
                                     <ul class="toggle-menu-elements">
                                         <li class="toggle-element">
-                                            <a data-navigation="assets/index/index.md" id="homeButtonIcon" class="button" title="Home">
+                                            <a data-navigation="index/index.md" id="homeButtonIcon" class="button" title="Home">
                                                 <img class="icon" src="assets/images/home_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Home Button">
                                             </a>
-                                            <a data-navigation="assets/index/index.md" id="homeButtonText" class="button" title="Home">
+                                            <a data-navigation="index/index.md" id="homeButtonText" class="button" title="Home">
                                                 Home
                                             </a>
                                         </li>
                                         <li class="toggle-element">
-                                            <a data-navigation="assets/notes/" id="notesButtonIcon" class="button" title="Notes">
+                                            <a data-navigation='' id="notesButtonIcon" class="button" title="Notes">
                                                 <img class="icon" src="assets/images/notes_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Notes Button">
                                             </a>
-                                            <a data-navigation="assets/notes/" id="notesButtonText" class="button" title="Notes">
+                                            <a data-navigation='' id="notesButtonText" class="button" title="Notes">
                                                 Notes
                                             </a>
                                         </li>
                                         <li class="toggle-element">
-                                            <a data-navigation="assets/codes/" id="codesButtonIcon" class="button" title="Codes">
+                                            <a data-navigation='' id="codesButtonIcon" class="button" title="Codes">
                                                 <img class="icon" src="assets/images/codes_32dp_000000_FILL0_wght700_GRAD200_opsz48.svg" alt="Codes Button">
                                             </a>
-                                            <a data-navigation="assets/codes/" id="codesButtonText" class="button" title="Codes">
+                                            <a data-navigation='' id="codesButtonText" class="button" title="Codes">
                                                 Codes
                                             </a>
                                         </li>
                                         <li class="toggle-element">
-                                            <a data-navigation="assets/linux/" id="linuxButtonIcon" class="button" title="Linux">
+                                            <a data-navigation='' id="linuxButtonIcon" class="button" title="Linux">
                                                 <img class="icon" src="assets/images/linux_icon.svg" alt="Linux Button">
                                             </a>
-                                            <a data-navigation="assets/linux/" id="linuxButtonText" class="button" title="Linux">
+                                            <a data-navigation='' id="linuxButtonText" class="button" title="Linux">
                                                 Linux
                                             </a>
                                         </li>
                                         <li class="toggle-element">
-                                            <a data-navigation="assets/about/about.md" id="aboutButtonText" class="button" title="About">
+                                            <a data-navigation="about/about.md" id="aboutButtonText" class="button" title="About">
                                                 About
                                             </a>
                                         </li>
@@ -74,7 +96,7 @@
             </header>
 	        <aside>
                 <div class="container aside-container">
-                    <div class="dropdown-container">
+                    <div class="dropdown-menu-container">
                     </div>
                 </div>
 	        </aside>

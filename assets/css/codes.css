@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+code {
+    border-radius: 2px;
+    padding: 2px 3px;
+    font-size: 15px;
+    background-color: var(--bdy-bg-clr);
+    counter-reset: line;
+}
+
+details.code-toggle {
+    margin: 0 1rem;
+    border: var(--cd-brdr-styl);
+    border-radius: var(--cd-brdr-rds);
+    box-shadow: var(--cd-bx-shdw);
+    padding: 0.25rem;
+    background-color: var(--cd-frm-bg-clr);
+}
+
+details.code-toggle summary {
+    position: relative;
+    left: 10px;
+    margin: 5px 0 5px 0;
+    cursor: pointer;
+    width: fit-content;
+    font-family: var(--fnt-fmly-two);
+    font-size: 14px;
+    color: white;
+}
+
+details.code-toggle summary:hover {
+    text-decoration: solid underline white var(--cd-frm-txt-dcrtn-thckness);
+}
+
+details.code-toggle summary::after {
+    content: "Show code";
+}
+
+details.code-toggle[open] summary::after {
+    content: "Hide code";
+}
+
+span.code-line {
+    display: inline-block;
+    counter-increment: line;
+}
+
+span.code-line:first-child::before {
+    border-top-left-radius: 2px;
+}
+
+span.code-line:last-child::before {
+    border-bottom-left-radius: 2px;
+}
+
+span.code-line::before {
+    display: inline-block;
+    content: counter(line);
+    margin-right: 20px;
+    width: 35px;
+    border-right: var(--cd-ln-nmbr-brdr-style);
+    padding-right: 5px;
+    background-color: var(--cd-ln-nmbr-bg-clr);
+    text-align: right;
+    color: var(--cd-ln-nmbr-txt-clr);
+}
+
+div.article-container code.hljs {
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    border: var(--cd-brdr-styl);
+    border-radius: var(--cd-brdr-rds);
+    padding: 0.25rem;
+}
