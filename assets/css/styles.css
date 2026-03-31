@@ -187,8 +187,11 @@ div.dropdown-menu-container {
     overflow-wrap: break-word;
 }
 
-div.article-container ul {
-    list-style: none;
+div.article-container ul,
+div.article-container ol {
+    margin-left: 1.5rem;
+    padding-left: 1.5rem;
+    /* list-style: none; */
     /* Can be removed safely, but still wait
     list-style-position: inside;
     font-family: var(--fnt-fmly-two);
@@ -196,12 +199,26 @@ div.article-container ul {
     line-height: 2; */
 }
 
-div.article-container ul li {
-    margin: 0;
-    padding: 0;
+div.article-container ul li::marker {
+    font-family: var(--fnt-fmly-two);
+    font-size: 20px;
 }
 
-div.article-container ul li > p::before {
+div.article-container ol li::marker {
+    /* margin: 0;
+    padding: 0; */
+    font-family: var(--fnt-fmly-two);
+    font-size: 15px;
+}
+
+div.article-container ul li > p,
+div.article-container ol li > p {
+    margin-left: 0.25rem;
+    padding-left: 0.25rem;
+}
+
+/* Can be removed safely, but still wait */
+/* div.article-container ul li > p::before {
     display: inline-block;
     width: 28px;
     height: 28px;
@@ -210,14 +227,15 @@ div.article-container ul li > p::before {
     content: "•";
     color: black;
     font-size: 28px;
-}
+} */
 
-div.article-container ul,
+/* Can be removed safely, but still wait */
+/* div.article-container ul,
 div.article-container li {
     margin: 0.5rem;
     padding: 0.5rem;
     font-size: 15px;
-}
+} */
 
 div.article-container a {
     font-weight: bold;

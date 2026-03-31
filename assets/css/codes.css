@@ -9,7 +9,7 @@ code {
 }
 
 details.code-toggle {
-    margin: 1rem 1.5rem;
+    margin: 1rem;
     border: var(--cd-brdr-styl);
     border-radius: var(--cd-brdr-rds);
     /* box-shadow: var(--cd-bx-shdw); */
