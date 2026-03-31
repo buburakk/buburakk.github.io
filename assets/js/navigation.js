@@ -23,7 +23,8 @@ const navigationMap = {
             { path: "python_7.md", title: "Efficient Multivariate Taylor Expansions with JAX" },
             { path: "python_8.md", title: "Computing Pascal's Triangle Efficiently" },
             { path: "python_9.md", title: "Linear Systems and Finite Difference Stencils in NumPy" },
-            { path: "python_10.md", title: "Finite Difference Differentiation: Accuracy and Error" }
+            { path: "python_10.md", title: "Finite Difference Differentiation: Accuracy and Error" },
+            { path: "python_11.md", title: "Array Compression: A Problem from Engineering" }
         ]
     },
     "linux/": {
