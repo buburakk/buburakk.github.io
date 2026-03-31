@@ -9,10 +9,10 @@ code {
 }
 
 details.code-toggle {
-    margin: 0 1rem;
+    margin: 1rem 1.5rem;
     border: var(--cd-brdr-styl);
     border-radius: var(--cd-brdr-rds);
-    box-shadow: var(--cd-bx-shdw);
+    /* box-shadow: var(--cd-bx-shdw); */
     padding: 0.25rem;
     background-color: var(--cd-frm-bg-clr);
 }
@@ -30,6 +30,7 @@ details.code-toggle summary {
 
 details.code-toggle summary:hover {
     text-decoration: solid underline white var(--cd-frm-txt-dcrtn-thckness);
+    text-underline-offset: 3px;
 }
 
 details.code-toggle summary::after {
